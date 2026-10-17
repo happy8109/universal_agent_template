@@ -12,6 +12,8 @@ universal_agent_template/
 ├── .agents/
 │   ├── AGENTS.md                  # 【核心】项目长期规则、架构铁律与协作宪章
 │   └── skills/
+│       ├── project-init/          # 【工作流 0】首次接入与工程文档自适应初始化
+│       │   └── SKILL.md
 │       ├── session-bootstrap/     # 【工作流 1】新会话开局无损承接与基准唤醒
 │       │   └── SKILL.md
 │       └── git-commit-suggestion/ # 【工作流 2】阶段收尾、规则升华与纯文本提交归档
@@ -34,6 +36,7 @@ your-new-project/
 ├── .agents/
 │   ├── AGENTS.md
 │   └── skills/
+│       ├── project-init/
 │       ├── session-bootstrap/
 │       └── git-commit-suggestion/
 ├── docs/
@@ -43,18 +46,26 @@ your-new-project/
 └── src/
 ```
 
-### 步骤 2：在新项目的 `docs/SESSION_HANDOFF.md` 中做极简微调（30 秒）
-打开 `docs/SESSION_HANDOFF.md`，仅需修改顶部【当前进行中任务基准】的初始项目任务与版本号：
-- **当前核心主线**：修改为你新项目的第一个攻坚模块名称；
-- **当前版本基准**：修改为初始版本号（如 `1.0.0.0` 或 `0.1.0`）。
-> **注**：`.agents/AGENTS.md` 为全局纯静态规则宪章，开箱即用，无需在此登记任务。对于纯算法、CLI 工具或轻量前端项目，可按需裁撤其第二部分（持久层扩展包）。
+### 步骤 2：对 AI 发送 `初始化` 或 `init`（零手动修改，全自动适配）
+复制完成后，无需手动修改任何文件！直接在与 AI 的首轮对话中输入：
+> **`初始化`** 或 **`init`**
+
+AI 将自动激活 `project-init` 技能：
+1. 深度扫描项目的语言、框架版本、持久层/数据库依赖与真实源码目录分层；
+2. 调阅真实的 Git 提交历史与版本基准（提取 `package.json` / `Cargo.toml` 等版本）；
+3. **全自动清洗并重写 `docs/architecture_design.md` 与 `docs/SESSION_HANDOFF.md`**，清除模板占位样例，替换为真实物理工程全景；
+4. 输出《项目工程全景体检与工作流初始化就绪报告》，即刻进入开发待命状态！
 
 ---
 
-## 🔄 日常开发核心三步工作流
+## 🔄 敏捷人机协同完整工作流
+
+### 0. 首次接入：输入 `初始化` 或 `init`
+- **触发**：新项目首次复制模板后，对 AI 发送 `初始化` 或 `init`；
+- **AI 动作**：全景扫描项目技术栈与真实代码结构，自动适配双账本（`architecture_design.md` & `SESSION_HANDOFF.md`），完成规则与工程基线对齐。
 
 ### 1. 开工承接：输入 `新会话`
-- **触发**：新开启一个对话时，对 AI 发送 `新会话` 或 `开始`；
+- **触发**：日常新开启一个对话时，对 AI 发送 `新会话` 或 `开始`；
 - **AI 动作**：
   1. 自动执行 `git status -s` 与 `git log -n 3 --stat` 查看物理状态与提交历史；
   2. 调阅动态状态真理源 `docs/SESSION_HANDOFF.md` 提取当前攻坚主线与最新业务里程碑；

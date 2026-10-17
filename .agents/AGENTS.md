@@ -39,8 +39,8 @@
 
 ### 4. 文档唯一性与状态单一真理源 (Single Source of Truth)
 - **静态规则唯一真理源**：本项目宪章 `AGENTS.md`。仅固化长期通用协作契约与架构铁律，**严禁在本文档中登记动态任务或临时资产清单**。
-- **动态状态唯一真理源**：`docs/SESSION_HANDOFF.md`。全系统**唯一的跨会话动态上下文交接中枢**（承载当前核心攻坚主线、版本基准、最新已就绪核心资产、以及历史交接流水）。
-- **系统技术全景唯一大账本**：`docs/architecture_design.md`。承载长期技术选型、核心数据模型、分层架构与全局 Backlog 清单。
+- **动态状态唯一真理源**：`docs/SESSION_HANDOFF.md`。全系统**唯一的跨会话动态上下文交接中枢**（由 `project-init` 完成初始化对齐，`session-bootstrap` 承接唤醒，`git-commit-suggestion` 收尾维护）。
+- **系统技术全景唯一大账本**：`docs/architecture_design.md`。承载长期技术选型、核心数据模型、分层架构与全局 Backlog 清单（由 `project-init` 在首次接入时自适应扫描填充）。
 - **规则升华准入门槛 (Rules Elevation Threshold)**：
   - 日常业务逻辑开发与常规功能增删改查**严禁盲目向本文件追加规则**，坚决杜绝 Prompt 膨胀与注意力稀释；
   - 仅当发生“重大架构推翻重构”、“严重连续性踩坑/死锁”或“抽象出跨模块通用底层契约”时，方可提炼升华；
